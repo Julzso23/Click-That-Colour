@@ -1,7 +1,7 @@
 function love.conf(t)
     t.identity = "CTC"
     t.version = "0.9.0"
-    t.console = false
+    t.console = true
 
     t.window.title = "Click That Colour"
     t.window.icon = nil
