@@ -1,9 +1,16 @@
 function love.load()
 	require("resources/lua/screen")
+	require("resources/lua/mouse")
 	require("resources/lua/objects")
+	require("resources/lua/scoring")
+	require("resources/lua/hud")
+	
 	backgroundImg = love.graphics.newImage("resources/images/background.png")
 
 	screen.init()
+	mouse.init()
+	score.init()
+	hud.init()
 end
 
 function love.update(dt)
@@ -20,10 +27,14 @@ function love.draw()
 	for k, v in pairs(objects.colours) do
 		v:draw()
 	end
+
+	hud.draw()
 end
 
 function love.mousepressed(x, y, button)
 	for k, v in pairs(objects.colours) do
 		v:checkCollisions(x, y, button, k)
 	end
+
+	mouse.toggleColour(button)
 end
