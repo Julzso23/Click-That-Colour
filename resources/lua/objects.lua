@@ -14,10 +14,12 @@ function obj.create(x, col)
 	o.size = 25
 	if col == 1 then
 		o.colour = "red"
+		o.img = love.graphics.newImage("resources/images/colourRed.png")
 	else
 		o.colour = "blue"
+		o.img = love.graphics.newImage("resources/images/colourBlue.png")
 	end
-	o.spd = 250
+	o.spd = 200
 	if x >= 500 then
 		o.direction = "left"
 	else
@@ -72,10 +74,6 @@ function obj:update(dt, key)
 end
 
 function obj:draw()
-	if self.colour == "red" then
-		love.graphics.setColor(255, 0, 0)
-	else
-		love.graphics.setColor(0, 0, 255)
-	end
-	love.graphics.circle("fill", screen.x(self.x), screen.y(self.y), screen.x(self.size), 100)
+	love.graphics.setColor(255, 255, 255)
+	love.graphics.draw(self.img, screen.x(self.x), screen.y(self.y), 0, screen.x(1000/1920), screen.y(1000/1080))
 end

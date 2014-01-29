@@ -14,7 +14,7 @@ function love.load()
 end
 
 function love.update(dt)
-	objects.generate(0.5, dt)
+	objects.generate(0.6, dt)
 	for k, v in pairs(objects.colours) do
 		v:update(dt, k)
 	end
